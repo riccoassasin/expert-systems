@@ -1,13 +1,14 @@
 (deftemplate coin (slot ctype))
-(deftemplate buy (slot product))
 (deftemplate change (slot remaining))
-(deftemplate cost (slot price))
+(deftemplate price (multislot rand cent))
 
-(defrule soda-price 
-		(buy (etype soda)
-	=>
-		(assert (cost
-			(price 8.50)))
+(deftemplate product (slot name) (multislot rand cent))
+
+(deffacts products
+  (product (name Cola) (rand 8 cent 50))
+  (product (name Orange) (rand 10 cent 0))
+  (product (name Sweets) (rand 12 cent 50))
+  (product (name Chocolate) (rand 15 cent 0)))
 			
 (defrule 10c+10c=20c 
 		(coin (ctype 10c))
@@ -56,7 +57,7 @@ defrule cola-no-change
 		(assert (change
 			(ctype 0c)))
 			
-(defrule cola-no-change 
+(defrule cola-50c-change 
 		(coin (ctype R2))
 		(coin (ctype R2))
 		(coin (ctype R5))
