@@ -2,13 +2,13 @@
 (deftemplate change (slot remaining))
 (deftemplate price (multislot rand cent))
 
-(deftemplate product (slot name) (multislot rand cent))
+(deftemplate product (slot name) (multislot price))
 
 (deffacts products
-  (product (name Cola) (rand 8 cent 50))
-  (product (name Orange) (rand 10 cent 0))
-  (product (name Sweets) (rand 12 cent 50))
-  (product (name Chocolate) (rand 15 cent 0)))
+  (product (name Cola) (price 8 50))
+  (product (name Orange) (price 10 0))
+  (product (name Sweets) (price 12 50))
+  (product (name Chocolate) (price 15 0)))
 			
 (defrule 10c+10c=20c 
 		(coin (ctype 10c))
@@ -64,4 +64,8 @@ defrule cola-no-change
 	=>
 		(assert (change
 			(ctype 50c)))
+
+			
+
+			
 			
