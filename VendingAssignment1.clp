@@ -1,5 +1,7 @@
 (deftemplate Product1 (slot Sweets))
 (deftemplate Product2 (slot Chocolate))
+(deftemplate Product3 (slot Orange))
+(deftemplate Product4 (slot Cola))
 	
 	
 (deffunction TotalPay (?Price)
@@ -20,6 +22,8 @@
     (bind ?Num (read))	
 	(if(eq ?Num 1) then (bind ?Price 12.50))
 	(if(eq ?Num 2) then (bind ?Price 15.00))
+	(if(eq ?Num 3) then (bind ?Price 10.00))
+	(if(eq ?Num 4) then (bind ?Price 8.50))
 	(printout t "The price for your item is: R " ?Price crlf
 	            "Please enter an amount to pay: (Only R5 , R2, R1, c50, c20, c10)" crlf
                 "Amount:R ")
@@ -28,19 +32,25 @@
 (deffunction Products()
     (printout t "Please choose one of the following: (Type in a number from 1-4)" crlf
 	             "1. Sweets" crlf
-				 "2. Chocolate" crlf
-				 "item Number:" )
-				(Prices))		
+		     "2. Chocolate" crlf
+                     "3. Orange"crlf
+                     "4. Cola" crlf
+		     "item Number:" )
+		      (Prices))		
 
 (deffacts ProductPrice
           (Product1 (Sweets 12.50))
-		  (Product2 (Chocolate 15.00)))
+          (Product2 (Chocolate 15.00))
+          (Product3 (Orange 10.00))
+          (Product4 (Cola 8.50)))
 		  
 
 
 (defrule AskUser 
          (Product1(Sweets 12.50))
          (Product2 (Chocolate 15.00))
+         (Product3 (Orange 10.00))
+         (Product4 (Cola 8.50))
 =>
         
         (Products))	
