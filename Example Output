@@ -1,0 +1,19 @@
+CLIPS> (load "Vending Machine.CLP")
+%%%%!!!$*
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Please choose one of the following: (Type in a number from 1-4)
+1. Sweets
+2. Chocolate
+3. Orange
+4. Cola
+item Number:4
+The price for your item is: R 8.5
+Please enter an amount to pay: (Only R5 , R2, R1, c50, c20, c10)
+Amount:R 5
+You still need to pay :R 3.5
+Please enter an amount to pay: (Only R5 , R2, R1, c50, c20, c10)
+Amount:R 5
+Your Change is: R 1.5
+CLIPS> 
