@@ -2,8 +2,7 @@
 (deftemplate Product2 (slot Chocolate))
 (deftemplate Product3 (slot Orange))
 (deftemplate Product4 (slot Cola))
-	
-	
+		
 (deffunction TotalPay (?Price)
         (while (> ?Price 0)
 		(bind ?AmountPaid (read))
@@ -44,13 +43,10 @@
           (Product3 (Orange 10.00))
           (Product4 (Cola 8.50)))
 		  
-
-
 (defrule AskUser 
          (Product1(Sweets 12.50))
          (Product2 (Chocolate 15.00))
          (Product3 (Orange 10.00))
          (Product4 (Cola 8.50))
-=>
-        
+=>        
         (Products))	
