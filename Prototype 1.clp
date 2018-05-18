@@ -3,7 +3,7 @@
 (deftemplate product (slot name) (multislot price))
 
 (deffacts products
-  (product (name Cola) (price R8 50c))
+  (product (name CocaCola) (price R8 50c))
   (product (name Orange) (price R10 0c))
   (product (name Sweets) (price R12 50c))
   (product (name Chocolate) (price R15 0c)))
@@ -46,7 +46,7 @@
 			(ctype R5)))
 
 
-defrule cola-no-change 
+defrule CocaCola-no-change 
 		(coin (ctype R1))
 		(coin (ctype R2))
 		(coin (ctype R5))
@@ -55,7 +55,7 @@ defrule cola-no-change
 		(assert (change
 			(remaining R0 0c)))
 			
-(defrule cola-ten-change 
+(defrule CocaCola-ten-change 
 		(coin (ctype R1))
 		(coin (ctype R2))
 		(coin (ctype R5))
@@ -66,7 +66,7 @@ defrule cola-no-change
 		(assert (change
 			(remaining R0 10c)))
 
-(defrule cola-fifty-change 
+(defrule CocaCola-fifty-change 
 		(coin (ctype R2))
 		(coin (ctype R2))
 		(coin (ctype R5))
@@ -74,7 +74,7 @@ defrule cola-no-change
 		(assert (change
 			(remaining R0 50c)))
 
-(defrule cola-one-fifty-change 
+(defrule CocacCola-one-fifty-change 
 		(coin (ctype R5))
 		(coin (ctype R5))
 	=>
